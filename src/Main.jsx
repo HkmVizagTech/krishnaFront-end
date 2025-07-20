@@ -387,22 +387,7 @@ const Main = () => {
                 />
                 <FormErrorMessage>{errors.name}</FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={!!errors.dob}>
-                <FormLabel>
-                  Date of Birth{' '}
-                  <Text as="span" color="red.500">
-                    *
-                  </Text>
-                </FormLabel>
-                <Input
-                  type="date"
-                  value={formData.dob}
-                  onChange={e => handleInputChange('dob', e.target.value)}
-                  borderWidth={2}
-                  _focus={{ borderColor: 'teal.500' }}
-                />
-                <FormErrorMessage>{errors.dob}</FormErrorMessage>
-              </FormControl>
+ 
               <FormControl isInvalid={!!errors.whatsappNumber}>
                 <FormLabel>
                   WhatsApp Number{' '}
