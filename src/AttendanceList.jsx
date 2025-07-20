@@ -56,7 +56,6 @@ const AttendanceList = () => {
           <Thead bg="gray.100">
             <Tr>
               <Th>Name</Th>
-              <Th>Gender</Th>
               <Th>College</Th>
               <Th>WhatsApp Number</Th>
               <Th>Payment Status</Th>
@@ -66,7 +65,6 @@ const AttendanceList = () => {
             {candidates.map((candidate) => (
               <Tr key={candidate._id}>
                 <Td>{candidate.name}</Td>
-                <Td>{candidate.gender}</Td>
                 <Td>{candidate.college}</Td>
                 <Td>{candidate.whatsappNumber}</Td>
                 <Td>{candidate.paymentStatus}</Td>

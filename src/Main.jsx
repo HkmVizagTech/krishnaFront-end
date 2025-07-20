@@ -148,7 +148,7 @@ const Main = () => {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ amount: 4900 }),
+          body: JSON.stringify({ amount: 5100 }),
         }
       );
       const orderData = await orderRes.json();
@@ -470,8 +470,8 @@ const Main = () => {
                     _focus={{ borderColor: 'teal.500' }}
                   >
                     <option value="">--Select--</option>
-                    <option value="hosteller">Hosteller</option>
-                    <option value="dayscholar">DayScholar</option>
+                    <option value="Hosteller">Hosteller</option>
+                    <option value="DayScholar">DayScholar</option>
                   </ChakraSelect>
                   <FormErrorMessage>
                     {errors.hostellerOrdayscholar}
