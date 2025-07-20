@@ -39,38 +39,41 @@ const initialState = {
   hostellerOrdayscholar: '',
   collegeOrWorking: '',
   companyName: '',
-  college: '',
+  college: 'AU',
   department: '',
   year: '',
-  amount: '49.00',
+  amount: '51.00',
 };
 
 const Main = () => {
   const toast = useToast();
   const navigate = useNavigate();
-  const [collegeOptions, setCollegeOptions] = useState([]);
+  const [collegeOptions, setCollegeOptions] = useState([
+  { label: 'Andhra University', value: 'Andhra University' },
+  { label: 'Other College', value: 'Other College' }
+]);
   const [formData, setFormData] = useState(initialState);
   const [otherCollege, setOtherCollege] = useState('');
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    const fetchColleges = async () => {
-      try {
-        const res = await axios.get(
-          'https://krishnapulsebackend-389286764509.asia-south1.run.app/api/college'
-        );
-        const options = res.data.map(college => ({
-          label: college.name,
-          value: college.name,
-        }));
-        setCollegeOptions(options);
-      } catch (err) {
-        console.error('Failed to fetch colleges:', err);
-      }
-    };
-    fetchColleges();
-  }, []);
+  // useEffect(() => {
+  //   const fetchColleges = async () => {
+  //     try {
+  //       const res = await axios.get(
+  //         'https://krishnapulsebackend-389286764509.asia-south1.run.app/api/college'
+  //       );
+  //       const options = res.data.map(college => ({
+  //         label: college.name,
+  //         value: college.name,
+  //       }));
+  //       setCollegeOptions(options);
+  //     } catch (err) {
+  //       console.error('Failed to fetch colleges:', err);
+  //     }
+  //   };
+  //   fetchColleges();
+  // }, []);
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -283,7 +286,7 @@ const Main = () => {
               fontWeight="bold"
               align="center"
             >
-              AU PRE-JANMATHAMI FESTIVAL
+              AU PRE-JANMASTHAMI FESTIVAL
             </Heading>
             <Text
               fontSize={{ base: 'md', md: 'lg' }}
@@ -354,7 +357,7 @@ const Main = () => {
               <TimeIcon color="orange.600" boxSize={6} />
             </Box>
             <Text fontSize="sm" fontWeight="medium">
-              2 Hours Event
+              Evening
             </Text>
           </VStack>
         </HStack>
@@ -591,16 +594,16 @@ const Main = () => {
                 disabled={isSubmitting}
                 type="button"
               >
-                Register Now for ₹49
+                Register Now for ₹51
               </Button>
               <Text textAlign="center" fontSize="md" mt={4} color="teal.600">
                 For any queries, contact us at{' '}
                 <Text
                   as="a"
-                  href="mailto:krishnapulse@gmail.com"
+                  href="mailto:Raghunath101k@gmail.com"
                   textDecoration="underline"
                 >
-                  krishnapulse@gmail.com
+                 Raghunath101k@gmail.com
                 </Text>
               </Text>
             </VStack>
