@@ -6,7 +6,7 @@ import {
 import axios from 'axios';
 import Layout from './component/Layout';
 
-const API_URL = 'https://vrc-server-110406681774.asia-south1.run.app/college'; // adjust if different
+const API_URL = 'https://krishnapulsebackend-389286764509.asia-south1.run.app/college'; // adjust if different
 
 const CollegeManager = () => {
   const [colleges, setColleges] = useState([]);

@@ -26,7 +26,7 @@ const Attendence = () => {
     }
 
     try {
-      const res = await fetch("https://vrc-server-110406681774.asia-south1.run.app/api/mark-attendance", {
+      const res = await fetch("https://krishnapulsebackend-389286764509.asia-south1.run.app/api/mark-attendance", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ whatsappNumber: trimmedPhone }),

@@ -39,7 +39,7 @@
     useEffect(() => {
       const verifyPayment = async () => {
         try {
-          const res = await axios.get(`https://vrc-server-110406681774.asia-south1.run.app/api/verify-payment/${id}`);
+          const res = await axios.get(`https://krishnapulsebackend-389286764509.asia-south1.run.app/api/verify-payment/${id}`);
           if (res.data.success) {
             setCandidate(res.data.candidate);
             setStatus('success');
