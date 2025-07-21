@@ -110,7 +110,7 @@ export default function ThankYouPage() {
               src={krishnaPulseLogo}
               alt="krishna janmashtami festival"
               boxSize="96px"
-              rounded="full"
+           
               shadow="lg"
             />
             <Center
@@ -132,10 +132,11 @@ export default function ThankYouPage() {
               color="black"
               fontWeight="bold"
               lineHeight="short"
+              textAlign={'center'}
             >
               AU PRE-JANMASTHAMI FESTIVAL
             </Heading>
-            <Text fontSize="md" fontWeight="semibold" mt={2} color="gray.700">
+            <Text fontSize="md" fontWeight="semibold" textAlign={'center'} mt={2} color="gray.700">
               A Fest of Fun, Faith & Freedom
             </Text>
           </Box>
@@ -188,7 +189,7 @@ export default function ThankYouPage() {
                   {/* <Text fontSize="sm" color="gray.600">August 19, 2024 (Janmashtami)</Text>
                    */}
                   <Text fontSize="sm" color="gray.600">
-                    August 15, 2025
+                    August 04, 2025
                   </Text>
                 </Box>
               </Flex>
@@ -199,7 +200,7 @@ export default function ThankYouPage() {
                   <Text fontWeight="semibold">Venue</Text>
                   {/* <Text fontSize="sm" color="gray.600">Main Auditorium, Campus Grounds</Text> */}
                   <Text fontSize="sm" color="gray.600">
-                    Gadiraju Palace, Beach Road, Visakhapatnam
+                    Andhra University Visakhapatnam
                   </Text>
                 </Box>
               </Flex>
@@ -225,10 +226,12 @@ export default function ThankYouPage() {
                   href="https://chat.whatsapp.com/Cv0fpaqDWqt4HHBZ3EoT9b?mode=ac_t" // <-- Replace this with your actual group link
                   target="_blank"
                   rel="noopener noreferrer"
-                  colorScheme="whatsapp"
+                  bgGradient="linear(to-r, purple.500, pink.500)"
                   variant="solid"
                   size="sm"
-                  alignSelf="start"
+                  color={'white'}
+                  alignSelf="center"
+                  _hover={{  bgGradient:"linear(to-r, purple.500, pink.500)",transform:'scale(1.03)',transition:'all 0.5s ease-out'}}
                 >
                   Join WhatsApp Group
                 </Button>
