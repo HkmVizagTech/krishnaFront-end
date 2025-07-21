@@ -85,7 +85,7 @@ function Registeration() {
           whatsappNumber: `${formData.whatsappNumber}`,
         }
 
-        const response = await fetch("https://krishnapulsebackend-389286764509.asia-south1.run.app/user", {
+        const response = await fetch("https://krishnabackend-389286764509.asia-south1.run.app/user", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

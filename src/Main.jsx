@@ -100,6 +100,7 @@ const Main = () => {
       year,
     } = formData;
 
+
     if (!name.trim()) newErrors.name = 'Name is required';
 
     if (!whatsappNumber.trim()) {
@@ -139,19 +140,23 @@ const Main = () => {
           ? otherCollege
           : formData.college,
     };
+    
 
     if (!validateForm()) return;
     setIsSubmitting(true);
     try {
+      
       const orderRes = await fetch(
-        'https://krishnapulsebackend-389286764509.asia-south1.run.app/api/create-order',
+        'https://krishnabackend-389286764509.asia-south1.run.app/api/create-order',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ amount: 5100 }),
+          body: JSON.stringify({ amount: 100 }),
         }
       );
+      console.log(orderRes)
       const orderData = await orderRes.json();
+      console.log(orderData)
       if (!orderData.id) throw new Error('Order creation failed');
 
       const options = {
@@ -164,7 +169,7 @@ const Main = () => {
         handler: async response => {
           try {
             const verifyRes = await fetch(
-              'https://krishnapulsebackend-389286764509.asia-south1.run.app/api/verify-payment',
+              'https://krishnabackend-389286764509.asia-south1.run.app/api/verify-payment',
               {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

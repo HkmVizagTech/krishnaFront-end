@@ -25,7 +25,7 @@ const AttendanceList = () => {
   useEffect(() => {
     const fetchAttendance = async () => {
       try {
-        const res = await axios.get("https://krishnapulsebackend-389286764509.asia-south1.run.app/api/attendance-list");
+        const res = await axios.get("https://krishnabackend-389286764509.asia-south1.run.app/api/attendance-list");
         setCandidates(res.data);
       } catch (err) {
         console.error("Error fetching attendance list:", err);
