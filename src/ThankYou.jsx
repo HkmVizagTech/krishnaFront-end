@@ -40,7 +40,7 @@ export default function ThankYouPage() {
     const verifyPayment = async () => {
       try {
         const res = await axios.get(
-          `https://krishnapulsebackend-389286764509.asia-south1.run.app/api/verify-payment/${id}`
+          `https://krishnabackend-389286764509.asia-south1.run.app/api/verify-payment/${id}`
         );
         if (res.data.success) {
           setCandidate(res.data.candidate);

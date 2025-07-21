@@ -30,7 +30,7 @@ const CandidateExport = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://krishnapulsebackend-389286764509.asia-south1.run.app/api/data")
+    fetch("https://krishnabackend-389286764509.asia-south1.run.app/api/data")
       .then((res) => res.json())
       .then((candidates) => {
         setData(candidates);
