@@ -86,50 +86,64 @@ const Main = () => {
     }
   };
 
-  const validateForm = () => {
-    const newErrors = {};
-    const {
-      name,
-      whatsappNumber,
-      email,
-      hostellerOrdayscholar,
-      collegeOrWorking,
-      companyName,
-      college,
-      department,
-      year,
-    } = formData;
+const validateForm = () => {
+  const newErrors = {};
+  const {
+    name,
+    whatsappNumber,
+    email,
+    hostellerOrdayscholar,
+    collegeOrWorking,
+    companyName,
+    college,
+    department,
+    year,
+  } = formData;
 
+  if (!name.trim()) newErrors.name = 'Name is required';
 
-    if (!name.trim()) newErrors.name = 'Name is required';
+  if (!whatsappNumber.trim()) {
+    newErrors.whatsappNumber = 'WhatsApp number is required';
+  } else if (!/^\d{10}$/.test(whatsappNumber.replace(/\D/g, ''))) {
+    newErrors.whatsappNumber = 'Enter a valid 10-digit number';
+  }
 
-    if (!whatsappNumber.trim()) {
-      newErrors.whatsappNumber = 'WhatsApp number is required';
-    } else if (!/^\d{10}$/.test(whatsappNumber.replace(/\D/g, ''))) {
-      newErrors.whatsappNumber = 'Enter a valid 10-digit number';
+  if (!email) newErrors.email = 'Email is required';
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    newErrors.email = 'Enter a valid email';
+  }
+
+  if (!collegeOrWorking) newErrors.collegeOrWorking = 'Please select one';
+
+  // Only validate company if Working is selected
+  if (collegeOrWorking === 'Working') {
+    if (!companyName.trim()) {
+      newErrors.companyName = 'Company name is required';
+    }
+  }
+
+  // Only validate college-related fields if College is selected
+  if (collegeOrWorking === 'College') {
+    if (!hostellerOrdayscholar) {
+      newErrors.hostellerOrdayscholar = 'Please select one';
     }
 
-    if (!email) newErrors.email = 'Email is required';
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      newErrors.email = 'Enter a valid email';
-
-    if (!hostellerOrdayscholar)
-      newErrors.hostellerOrdayscholar = 'Please select one';
-
-    if (!collegeOrWorking) newErrors.collegeOrWorking = 'Please select one';
-
-    if (collegeOrWorking === 'Working' && !companyName.trim())
-      newErrors.companyName = 'Company name is required';
-
-    if (collegeOrWorking === 'College' && !college.trim())
+    if (!college.trim()) {
       newErrors.college = 'College name is required';
+    }
 
-    if (!department.trim()) newErrors.department = 'Department is required';
-    if (!year) newErrors.year = 'Year is required';
+    if (!department.trim()) {
+      newErrors.department = 'Department is required';
+    }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+    if (!year) {
+      newErrors.year = 'Year is required';
+    }
+  }
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
 
   const handlePayment = async () => {
     const finalFormData = {
@@ -140,12 +154,14 @@ const Main = () => {
           ? otherCollege
           : formData.college,
     };
+    console.log('ehjl')
     
 
     if (!validateForm()) return;
+    console.log('hello')
     setIsSubmitting(true);
     try {
-      
+      console.log(formData)
       const orderRes = await fetch(
         'https://krishnabackend-389286764509.asia-south1.run.app/api/create-order',
         {
