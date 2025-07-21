@@ -172,7 +172,7 @@ const validateForm = () => {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ amount: 100 }),
+          body: JSON.stringify({ amount: 5100 }),
         }
       );
       console.log(orderRes)
