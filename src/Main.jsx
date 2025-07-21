@@ -146,19 +146,24 @@ const validateForm = () => {
 };
 
   const handlePayment = async () => {
-    const finalFormData = {
-      ...formData,
-      college:
-        formData.collegeOrWorking === 'College' &&
-        formData.college === 'Other College'
-          ? otherCollege
-          : formData.college,
-    };
-    console.log('ehjl')
+   const finalFormData = {
+  ...formData,
+  college:
+    formData.collegeOrWorking === 'College'
+      ? formData.college === 'Other College'
+        ? otherCollege
+        : formData.college
+      : '',
+  year: formData.collegeOrWorking === 'College' ? formData.year : '',
+  department: formData.collegeOrWorking === 'College' ? formData.department : '',
+  companyName: formData.collegeOrWorking === 'Working' ? formData.companyName : '',
+};
+
+ 
     
 
     if (!validateForm()) return;
-    console.log('hello')
+
     setIsSubmitting(true);
     try {
       console.log(formData)
@@ -167,7 +172,7 @@ const validateForm = () => {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ amount: 5100 }),
+          body: JSON.stringify({ amount: 100 }),
         }
       );
       console.log(orderRes)
@@ -179,7 +184,7 @@ const validateForm = () => {
         key: 'rzp_live_HBAc3tlMK0X5Xd',
         amount: orderData.amount,
         currency: 'INR',
-        name: 'Krishna Pulse Youth Fest',
+        name: 'AU pre-Janmasthami Festival',
         description: 'Registration Fee',
         order_id: orderData.id,
         handler: async response => {
