@@ -147,7 +147,12 @@ const validateForm = () => {
 
   const handlePayment = async () => {
    const finalFormData = {
-  ...formData,
+  name: formData.name,
+  email: formData.email,
+  whatsappNumber: formData.whatsappNumber,
+  collegeOrWorking: formData.collegeOrWorking,
+  hostellerOrdayscholar:formData.collegeOrWorking==='College'?formData.hostellerOrdayscholar:'',
+  companyName: formData.collegeOrWorking === 'Working' ? formData.companyName : '',
   college:
     formData.collegeOrWorking === 'College'
       ? formData.college === 'Other College'
@@ -156,8 +161,8 @@ const validateForm = () => {
       : '',
   year: formData.collegeOrWorking === 'College' ? formData.year : '',
   department: formData.collegeOrWorking === 'College' ? formData.department : '',
-  companyName: formData.collegeOrWorking === 'Working' ? formData.companyName : '',
 };
+
 
  
     
@@ -200,6 +205,7 @@ const validateForm = () => {
                   razorpay_signature: response.razorpay_signature,
                   formData: {
                     ...finalFormData,
+                    amount: orderData.amount / 100,
                     paymentMethod: 'Online',
                     receipt: `receipt_${Date.now()}`,
                   },
