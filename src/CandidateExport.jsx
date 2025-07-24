@@ -138,14 +138,19 @@ const CandidateExport = () => {
           />
         </FormControl>
       </Flex>
-
-      <Button colorScheme="teal" mb={4} onClick={exportToExcel}>
+      <Flex alignContent={'center'} gap={5}> 
+         <Box pt={2}><Box as='span' fontWeight={500}>Total Entries: </Box>{filteredData?filteredData.length:0}</Box>
+          <Button colorScheme="teal" mb={4} onClick={exportToExcel}>
         Export to Excel
       </Button>
+     
+      </Flex>
+    
 
       <Table variant="striped" size="sm">
         <Thead>
           <Tr>
+            <Th>SNo</Th>
             <Th>Name</Th>
             <Th>Gender</Th>
             <Th>Course</Th>
@@ -161,6 +166,7 @@ const CandidateExport = () => {
         <Tbody>
           {filteredData.map((candidate, idx) => (
             <Tr key={idx}>
+              <Td>{idx+1}</Td>
               <Td>{candidate.name}</Td>
               <Td>{candidate.gender}</Td>
               <Td>{candidate.course}</Td>
